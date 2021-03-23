@@ -4,11 +4,12 @@
 # FROM tommycheng/roonserver-base
 
 # Using latest debian, since 15.10 still regularly crashes
-FROM debian:buster
+FROM debian:buster-slim
 
 # Install prerequisite packages
 RUN apt-get update \
-        && apt-get install -y curl bzip2 libav-tools cifs-utils libasound2 \
+        #&& apt-get install -y curl bzip2 libav-tools cifs-utils libasound2 \
+        && apt-get install -y curl bzip2 ffmpeg cifs-utils libasound2 \
         && apt-get clean && apt-get autoclean
 # Based upon RonCH's Dockerfile from https://community.roonlabs.com/t/roon-running-in-docker-on-synology/9979
 # and instructions from http://kb.roonlabs.com/LinuxInstall
